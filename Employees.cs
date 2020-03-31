@@ -48,5 +48,30 @@ namespace AssignmentNo19
             set { appraisal = value; }
         }
 
+        public static void DisplayWithAppraisal(List<Employees> employees, string message, bool displayCount)
+        {
+            int index = 0;
+            if (displayCount)
+                Console.WriteLine($"Found ({employees.Count}) employees");
+            if (message != string.Empty)
+            {
+                Console.WriteLine(message);
+                Console.WriteLine("----------------------------------------------------");
+            }
+            foreach (var employee in employees)
+            {
+                index++;
+                Console.Write($"{index}) {employee.FirstName} {employee.LastName}, {employee.Salary}, {employee.Age}, last 5 apparisals |");
+                foreach (var app in employee.Appraisal)
+                {
+                    Console.Write(app + "|");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+        }
+
+       
+
     }
 }
